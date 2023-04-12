@@ -2,10 +2,12 @@
   <div class="main">
     <SettingsTitle />
     <div class="main__container">
+      <Save />
       <OtherSettings />
       <GoToCard />
       <AlertsToNewCollections />
       <Account />
+      <Sip />
     </div>
   </div>
 </template>
@@ -16,6 +18,8 @@ import OtherSettings from '@/components/OtherSettings.vue';
 import GoToCard from '@/components/GoToCard.vue';
 import AlertsToNewCollections from '@/components/AlertsToNewCollections';
 import Account from '@/components/Account.vue';
+import Sip from '@/components/Sip.vue';
+import Save from '@/components/SaveButton.vue';
 
 export default {
   name: 'Home',
@@ -25,6 +29,8 @@ export default {
     GoToCard,
     AlertsToNewCollections,
     Account,
+    Sip,
+    Save,
   },
 };
 </script>

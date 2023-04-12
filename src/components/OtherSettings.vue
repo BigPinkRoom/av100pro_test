@@ -5,6 +5,7 @@
       <div class="other-settings__time">
         <p class="other-settings__subtitle">Часовой пояс</p>
         <v-select
+          class="other-settings__select"
           color="#E1E1E3"
           outlined
           dense
@@ -96,6 +97,10 @@ export default {
   &__subtitle {
     margin-top: 10px;
     margin-right: 30px;
+  }
+
+  &__select {
+    width: 250px;
   }
 
   &__time {

@@ -41,6 +41,7 @@
               mdi-pencil
             </v-icon>
             <v-text-field
+              class="alerts-to-new-collections__text-input"
               v-else-if="emailOpen === true"
               outlined
             ></v-text-field>
@@ -63,6 +64,7 @@
               mdi-pencil
             </v-icon>
             <v-text-field
+              class="alerts-to-new-collections__text-input"
               v-else-if="telegramIDOpen === true"
               outlined
             ></v-text-field>
@@ -132,6 +134,11 @@ export default {
   &__text-subtitle {
     font-size: 15px;
     font-weight: 600;
+  }
+
+  &__text-input {
+    font-size: 14px;
+    font-weight: 400;
   }
 
   &__text {

@@ -4,23 +4,48 @@
     <div class="account__wrapper">
       <div class="account__container">
         <p class="account__subtitle">Компания</p>
-        <v-text-field outlined color="green"></v-text-field>
+        <v-text-field
+          class="account__text"
+          outlined
+          color="green"
+          disabled
+          value="Частное лицо"
+        ></v-text-field>
       </div>
       <div class="account__container">
         <p class="account__subtitle">Логин</p>
-        <v-text-field outlined color="green"></v-text-field>
+        <v-text-field
+          class="account__text"
+          outlined
+          color="green"
+          disabled
+          value="89001001010"
+        ></v-text-field>
       </div>
       <div class="account__container">
         <p class="account__subtitle">Номер телефона</p>
-        <v-text-field outlined color="green"></v-text-field>
+        <v-text-field
+          outlined
+          color="green"
+          class="account__text"
+        ></v-text-field>
       </div>
       <div class="account__container">
         <p class="account__subtitle">Имя</p>
-        <v-text-field outlined color="green"></v-text-field>
+        <v-text-field
+          outlined
+          color="green"
+          class="account__text"
+          value="Анонимус-2"
+        ></v-text-field>
       </div>
       <div class="account__container">
         <p class="account__subtitle">Фамилия</p>
-        <v-text-field outlined color="green"></v-text-field>
+        <v-text-field
+          outlined
+          color="green"
+          class="account__text"
+        ></v-text-field>
       </div>
       <div class="account__unnecessary">*Не обязательно</div>
     </div>
@@ -64,6 +89,11 @@ export default {
     font-size: 14px;
     font-weight: 500;
     width: 130px;
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 400;
   }
 
   &__unnecessary {
