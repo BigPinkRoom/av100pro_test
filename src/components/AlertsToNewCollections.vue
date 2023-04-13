@@ -104,6 +104,9 @@ export default {
     await this.getEmail();
   },
   methods: {
+    /**
+     * Get email from store and set email from data.
+     */
     async getEmail() {
       await this.$store.dispatch('getEmail');
       this.email = this.$store.state.email;

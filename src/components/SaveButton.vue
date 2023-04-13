@@ -22,6 +22,9 @@ export default {
     return {};
   },
   methods: {
+    /**
+     * Set email from store.
+     */
     setEmail() {
       this.$store.dispatch('setEmail').finally(() => {
         this.$emit('save');
