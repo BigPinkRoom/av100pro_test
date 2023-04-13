@@ -31,16 +31,22 @@
           <v-divider class="alerts-to-new-collections__divider"></v-divider>
           <div class="alerts-to-new-collections__container">
             <v-radio value="radio3" label="Email" color="#0075FF" />
-            <v-icon
-              color="green"
-              dense
-              class="alerts-to-new-collections__text"
+            <div
               v-if="!emailOpen"
-              @click="emailOpen = true"
+              class="alerts-to-new-collections__email-container"
             >
-              {{ email }}
-              mdi-pencil
-            </v-icon>
+              <v-icon
+                color="green"
+                dense
+                class="alerts-to-new-collections__text"
+                @click="emailOpen = true"
+              >
+                mdi-pencil
+              </v-icon>
+              <div class="alerts-to-new-collections__text-email">
+                {{ email }}
+              </div>
+            </div>
             <v-text-field
               v-model="email"
               class="alerts-to-new-collections__text-input"
@@ -89,7 +95,20 @@ export default {
       telegramID: '',
     };
   },
-  methods: {},
+  watch: {
+    email(newValue) {
+      this.$store.commit('SET_TEMP_EMAIL', newValue);
+    },
+  },
+  async mounted() {
+    await this.getEmail();
+  },
+  methods: {
+    async getEmail() {
+      await this.$store.dispatch('getEmail');
+      this.email = this.$store.state.email;
+    },
+  },
 };
 </script>
 
@@ -157,12 +176,21 @@ export default {
     font-weight: 600;
   }
 
+  &__email-container {
+    display: flex;
+    flex-direction: row-reverse;
+
+    font-weight: 400;
+  }
+
   &__text-input {
     font-size: 14px;
     font-weight: 400;
   }
 
   &__text {
+    padding-left: 10px;
+
     cursor: pointer;
   }
 }

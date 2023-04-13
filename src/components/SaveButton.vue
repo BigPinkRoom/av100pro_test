@@ -7,7 +7,7 @@
         block
         depressed
         color="#2DC574"
-        @click="saveInformation"
+        @click="setEmail"
         >Сохранить</v-btn
       >
       <v-divider></v-divider>
@@ -22,25 +22,10 @@ export default {
     return {};
   },
   methods: {
-    saveInformation() {
-      this.axios({
-        method: 'PUT',
-        url: ' https://av100.pro/settings',
-        headers: {
-          'X-API-KEY': '8bcfb6e1-4fa8-4fae-872c-a435bbdbe8d9',
-          'X-Device-OS': 'web',
-          'X-User-Token': '32e7a8fd-a134-4899-bb48-a8125730bc58',
-        },
-        body: {
-          text: 'text',
-        },
-      })
-        .then((response) => {
-          console.log(response.data);
-        })
-        .finally(() => {
-          this.$emit('save');
-        });
+    setEmail() {
+      this.$store.dispatch('setEmail').finally(() => {
+        this.$emit('save');
+      });
     },
   },
 };
