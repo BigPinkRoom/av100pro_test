@@ -36,6 +36,9 @@ export default {
     Save,
   },
   methods: {
+    /**
+     * Show alert container.
+     */
     alertShow() {
       const alert = document.querySelector('.js-alert');
       alert.style.display = 'flex';
