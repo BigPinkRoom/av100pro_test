@@ -28,7 +28,7 @@
           <v-divider class="go-to-card__divider"></v-divider>
           <div class="go-to-card__container">
             <v-radio value="radio3" label="На источник" color="#0075FF" />
-            <v-tooltip v-model="show" bottom color="#2DC574">
+            <v-tooltip bottom color="#2DC574">
               <template v-slot:activator="{ on, attrs }">
                 <v-btn icon v-bind="attrs" v-on="on">
                   <v-icon color="grey lighten-1">
@@ -65,6 +65,10 @@ export default {
   font-size: 18px;
   font-weight: 600;
 
+  @media all and (max-width: 580px) {
+    padding-right: 0;
+  }
+
   &__wrapper {
     flex-direction: column;
   }
@@ -85,10 +89,22 @@ export default {
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
+
+    @media all and (max-width: 952px) {
+      font-size: 15px;
+    }
+
+    @media all and (max-width: 768px) {
+      display: none;
+    }
   }
 
   &__subtitle {
     margin-right: 30px;
+
+    @media all and (max-width: 952px) {
+      font-size: 11px;
+    }
   }
 
   &__time {

@@ -26,11 +26,19 @@ export default {
   font-size: 18px;
   font-weight: 600;
 
+  @media all and (max-width: 768px) {
+    flex-direction: column;
+  }
+
   &__wrapper {
     font-size: 14px;
     font-weight: 400;
     display: flex;
     flex-direction: column;
+
+    @media all and (max-width: 952px) {
+      font-size: 11px;
+    }
   }
 
   &__title {
@@ -39,6 +47,10 @@ export default {
     align-items: center;
     justify-content: flex-left;
     width: 270px;
+
+    @media all and (max-width: 952px) {
+      font-size: 15px;
+    }
   }
 
   &__switch {

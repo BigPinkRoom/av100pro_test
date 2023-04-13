@@ -10,14 +10,14 @@
         <p class="alerts-to-new-collections__text-subtitle">Уведомления</p>
       </div>
       <div class="alerts-to-new-collections__options">
-        <v-radio-group v-model="radio">
+        <v-radio-group>
           <div class="alerts-to-new-collections__container">
             <v-radio value="radio1" label="Выкл" color="#0075FF" />
           </div>
           <v-divider class="alerts-to-new-collections__divider"></v-divider>
           <div class="alerts-to-new-collections__container">
             <v-radio value="radio2" label="Push" disabled color="#0075FF" />
-            <v-tooltip v-model="show" bottom color="#2DC574">
+            <v-tooltip bottom color="#2DC574">
               <template v-slot:activator="{ on, attrs }">
                 <v-btn icon v-bind="attrs" v-on="on">
                   <v-icon color="grey lighten-1">
@@ -30,7 +30,7 @@
           </div>
           <v-divider class="alerts-to-new-collections__divider"></v-divider>
           <div class="alerts-to-new-collections__container">
-            <v-radio value="radio3" label="Email" ref="email" color="#0075FF" />
+            <v-radio value="radio3" label="Email" color="#0075FF" />
             <v-icon
               color="green"
               dense
@@ -38,9 +38,11 @@
               v-if="!emailOpen"
               @click="emailOpen = true"
             >
+              {{ email }}
               mdi-pencil
             </v-icon>
             <v-text-field
+              v-model="email"
               class="alerts-to-new-collections__text-input"
               v-else-if="emailOpen === true"
               outlined
@@ -64,6 +66,7 @@
               mdi-pencil
             </v-icon>
             <v-text-field
+              v-model="telegramID"
               class="alerts-to-new-collections__text-input"
               v-else-if="telegramIDOpen === true"
               outlined
@@ -82,6 +85,8 @@ export default {
     return {
       emailOpen: false,
       telegramIDOpen: false,
+      email: '',
+      telegramID: '',
     };
   },
   methods: {},
@@ -96,6 +101,10 @@ export default {
 
   font-size: 18px;
   font-weight: 600;
+
+  @media all and (max-width: 580px) {
+    padding-right: 0;
+  }
 
   &__wrapper {
     flex-direction: column;
@@ -117,10 +126,22 @@ export default {
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
+
+    @media all and (max-width: 952px) {
+      font-size: 15px;
+    }
+
+    @media all and (max-width: 768px) {
+      display: none;
+    }
   }
 
   &__subtitle {
     margin-right: 30px;
+
+    @media all and (max-width: 952px) {
+      font-size: 11px;
+    }
   }
 
   &__time {

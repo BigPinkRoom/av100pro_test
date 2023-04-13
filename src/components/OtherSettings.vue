@@ -19,7 +19,7 @@
             label="Автоматически переходить к новым объявлениям"
             color="#2DC574"
           />
-          <v-tooltip v-model="show" bottom color="#2DC574">
+          <v-tooltip bottom color="#2DC574">
             <template v-slot:activator="{ on, attrs }">
               <v-btn icon v-bind="attrs" v-on="on">
                 <v-icon color="grey lighten-1">
@@ -32,7 +32,7 @@
         </div>
         <div class="other-settings__container">
           <v-checkbox label="Включить цвета в ленте" color="#2DC574" />
-          <v-tooltip v-model="show" bottom color="#2DC574">
+          <v-tooltip bottom color="#2DC574">
             <template v-slot:activator="{ on, attrs }">
               <v-btn icon v-bind="attrs" v-on="on">
                 <v-icon color="grey lighten-1">
@@ -80,6 +80,10 @@ export default {
   font-size: 18px;
   font-weight: 600;
 
+  @media all and (max-width: 580px) {
+    display: block;
+  }
+
   &__wrapper {
     flex-direction: column;
   }
@@ -92,6 +96,14 @@ export default {
 
   &__title {
     width: 270px;
+
+    @media all and (max-width: 952px) {
+      font-size: 15px;
+    }
+
+    @media all and (max-width: 768px) {
+      display: none;
+    }
   }
 
   &__subtitle {
@@ -109,6 +121,10 @@ export default {
 
     font-size: 14px;
     font-weight: 500;
+
+    @media all and (max-width: 580px) {
+      margin-right: 0;
+    }
   }
 }
 </style>

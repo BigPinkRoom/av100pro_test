@@ -1,8 +1,11 @@
 <template>
   <div class="main">
+    <v-alert dense text type="success" class="main__alert js-alert">
+      Сохранено
+    </v-alert>
     <SettingsTitle />
     <div class="main__container">
-      <Save />
+      <Save @save="alertShow" />
       <OtherSettings />
       <GoToCard />
       <AlertsToNewCollections />
@@ -32,6 +35,15 @@ export default {
     Sip,
     Save,
   },
+  methods: {
+    alertShow() {
+      const alert = document.querySelector('.js-alert');
+      alert.style.display = 'flex';
+      setTimeout(() => {
+        alert.style.display = 'none';
+      }, 3000);
+    },
+  },
 };
 </script>
 
@@ -41,6 +53,18 @@ export default {
   flex-direction: column;
   margin: auto;
   max-width: 1890px;
+
+  &__alert {
+    position: fixed;
+    z-index: 1000;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+
+    transform: translateX(-50%);
+  }
 
   &__container {
     max-width: 752px;
